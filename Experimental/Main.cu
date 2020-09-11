@@ -42,7 +42,7 @@ int main(void)
     //  {
 
   //  std::cout << "Running 1" << std::endl;
-    int n = (1000000); //
+    int n = (10000000); //
 
     float *x;
     float *y;

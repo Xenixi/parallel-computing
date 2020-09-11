@@ -58,5 +58,6 @@
         "xstring": "cpp",
         "xtr1common": "cpp",
         "xutility": "cpp"
-    }
+    },
+    "python.formatting.provider": "autopep8"
 }
