@@ -37,7 +37,7 @@ int main(void)
     std::cout << "Starting CUDA example... Array 10m entries" << std::endl;
     std::cout << "Creating array" << std::endl;
 
-    int number = 10000000;
+    const int number = 10000000;
 
     float *testA;
     float *testB;
@@ -46,16 +46,8 @@ int main(void)
     cudaMallocManaged(&testA, number * sizeof(float));
     cudaMallocManaged(&testB, number * sizeof(float));
     cudaMallocManaged(&outputC, number * sizeof(float));
-    /*
-     for (int i = 0; i < number; i++)
-    {
-        testA[i] = 2.3423;
-        testB[i] = 1.4214;
-    }
-    
-*/
 
-//    init<<<9766, 1024>>>(number, testA, testB);
+    //    init<<<9766, 1024>>>(number, testA, testB);
     init<<<9766, 1024>>>(number, testA, testB);
     cudaDeviceSynchronize();
 
@@ -71,6 +63,8 @@ int main(void)
     auto time2 = std::chrono::high_resolution_clock::now();
 
     auto dur = std::chrono::duration_cast<std::chrono::microseconds>(time2 - time1).count();
+
+   
 
     std::cout << "[CUDA] Time taken: " << (dur / 1000.00) << "ms";
 
